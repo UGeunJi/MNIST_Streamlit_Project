@@ -6,7 +6,7 @@ import numpy as np
 
 @st.cache(allow_output_mutation=True)
 def load():
-    return load_model('./mnist2.h5')
+    return load_model('./model.h5')
 model = load()
 
 st.write('# MNIST Recognizer')
