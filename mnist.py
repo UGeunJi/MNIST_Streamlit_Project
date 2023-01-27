@@ -27,7 +27,7 @@ with col1:
         key='canvas'
     )
 
-if canvas.image_data is not None:d
+if canvas.image_data is not None:
     img = canvas.image_data.astype(np.uint8)
     img = cv2.resize(img, dsize=(28, 28))
     preview_img = cv2.resize(img, dsize=(CANVAS_SIZE, CANVAS_SIZE), interpolation=cv2.INTER_NEAREST)
