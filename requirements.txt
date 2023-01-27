@@ -1,0 +1,10 @@
+streamlit
+streamlit-drawable-canvas
+cryptocmd
+protobuf==4.21.12
+plotly
+pandas_datareader
+tensorflow
+keras
+opencv-python
+streamlit_drawable_canvas
