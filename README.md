@@ -1,4 +1,4 @@
-# :1234: MNIST Streamlit Project :slot_machine: 
+⁸# :1234: MNIST Streamlit Project :slot_machine: 
 
 ### [:pencil2: 프로젝트 결과 직접 체험하기]()
 
@@ -26,6 +26,7 @@
     # 6. pip install opencv-python
     # 7. pip install streamlit_drawable_canvas
     # 8. 모듈이 없다고 오류뜨면 pip install <module name>
+    # 9. pip install -r requirements.txt
 ```
 
 ---
