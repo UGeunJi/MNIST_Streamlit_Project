@@ -15,14 +15,14 @@ st.image('./images/title.png')
 st.write('### :star: :red[특별 체험]')
 
 
-lotto = st.checkbox('Lotto')
-if lotto:
-    st.write('좋아요!')
-phone_number = st.checkbox('Phone Number')
-if phone_number:
-    st.image('./images/따봉1.png')
 calculator = st.checkbox('Calculator')
 if calculator:
+    st.write('좋아요!')
+lottery = st.checkbox('Lottery')
+if lottery:
+    st.image('./images/따봉1.png')
+phone_number = st.checkbox('Phone Number')
+if phone_number:
     st.image('./images/따봉2.png')
 
 
