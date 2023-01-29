@@ -12,6 +12,10 @@ def load():
     return load_model('./model.h5')
 model = load()
 
+from utils import set_bg
+st.image('./images/title.png')
+set_bg('images/mnist2.png')
+
 name_input = st.text_input('이름을 입력하세요')
 
 st.subheader(" '010'을 제외한 휴대폰 번호 8자리를 입력해주세요.")

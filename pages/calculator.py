@@ -4,11 +4,15 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import random
-
+from utils import set_bg
 @st.cache(allow_output_mutation=True)
 def load():
     return load_model('./model.h5')
 model = load()
+
+
+st.image('./images/title.png')
+set_bg('images/mnist2.png')
 
 st.write('# Calculator :computer:')
 st.write('Draw Any Two Number')
@@ -49,7 +53,7 @@ def calculation() :
         st.write('## %d * %d = %d' % (z1,z2,z1*z2))
 
 # canvas 설정
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 
 with col1:
     canvas1 = st_canvas(
