@@ -8,5 +8,5 @@ tensorflow
 keras
 opencv-python
 pyautogui
-
+openpyxl
 
