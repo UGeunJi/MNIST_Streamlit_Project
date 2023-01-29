@@ -222,7 +222,7 @@ with col_1:
         st.download_button(
             label="CSV 파일 다운로드",
             data=csv,
-            file_name='주가 데이터 정보.csv'
+            file_name='휴대폰 번호 정보.csv'
         )
 
         excel_data = BytesIO()  
@@ -232,7 +232,7 @@ with col_1:
         st.download_button(
             label="엑셀 파일 다운로드",
             data=excel_data,
-            file_name='주가 데이터 정보.xlsx'
+            file_name='휴대폰 번호 정보.xlsx'
         )
 
 with col_2:
