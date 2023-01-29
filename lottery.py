@@ -82,6 +82,7 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import tensorflow as ts
 import random  
+import pyautogui
 
 disable_btn=False
 
@@ -90,7 +91,7 @@ def load():
     return load_model('./model.h5')
 model = load()
 
-st.header('행운의 숫자 뽑기')
+st.title('행운의 숫자 뽑기')
 
 col1, col2,col3,col4 = st.columns(4)
 CANVAS_SIZE = 192
@@ -152,12 +153,13 @@ if len(st.session_state.key)>3 :
         st.write(sorted_number)
     with col2:    
         st.write('당첨번호 확인하기')
-        check_number=st.button('두과자')
+        check_number=st.button('과연 몇개?')
         st.write('나온 숫자입니다')
         lottery_num=sorted(st.session_state.rn)
         st.write(lottery_num)
         txt=lottery_check(sorted_number,lottery_num)
         st.write('%d 개 맞았습니다 ' %(txt))
+
     
 
 def get_2number (c1,c2):
@@ -180,7 +182,7 @@ if (canvas1.image_data is not None) & (canvas2.image_data is not None):
     with col3:
 
         get_number=get_2number(canvas1,canvas2)
-        st.write('## 쓰신 숫자가: %d 맞나요?' % get_number)
+        st.subheader('쓰신 숫자가: %d 맞나요?' % get_number)
 
         with st.container() :
             yes_btn= st.button('yes',disabled=(disable_btn))
@@ -194,14 +196,18 @@ if (canvas1.image_data is not None) & (canvas2.image_data is not None):
         if no_btn:
             with col2:
                 st.write("숫자를 다시 입력해주세요")
-
+        st.text('중복숫자는 불가능')
 # 바뀐부분
 with col4:
+    st.text(" 총 4개의\n 숫자를 입력\n 하세요")
     if st.session_state:
         str_set=''
         for i in st.session_state.key :
            str_set+=str(i)+' '
-        st.text(str_set)
-        
+        st.subheader(str_set)
+    with col4:
+        refresh_btn=st.button("regame?")
+        if refresh_btn==True:
+            pyautogui.hotkey('f5')        
         
         
