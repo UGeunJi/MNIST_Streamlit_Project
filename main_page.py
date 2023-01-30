@@ -11,9 +11,7 @@ st.image('./images/title.png')
 st.write('### :star: :red[특별 체험]')
 
 
-calculator = st.checkbox('Calculator')
-if calculator:
-    st.write('좋아요!')
+
 lottery = st.checkbox('Lottery')
 if lottery:
     st.image('./images/따봉1.png')
