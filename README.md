@@ -27,13 +27,13 @@
 
 ### 시연 영상
 
-[Main Page 영상](#main-page-시연-영상)
+[Main Page 시연 영상](#main-page-시연-영상)
 
-[Calculator 영상](calculator-시연-영상)
+[Calculator 시연 영상](calculator-시연-영상)
 
-[Lottery 영상](#lottery-시연-영상)
+[Lottery 시연 영상](#lottery-시연-영상)
 
-[Phone Number 영상](#phone-number-시연-영상)
+[Phone Number 시연 영상](#phone-number-시연-영상)
 
 ---
 
@@ -105,20 +105,20 @@ st.image('./images/title.png')
 st.write('### :star: :red[특별 체험]')
 
 
-lotto = st.checkbox('Lotto')
-if lotto:
-    st.write('좋아요!')
-phone_number = st.checkbox('Phone Number')
-if phone_number:
-    st.image('./images/따봉1.png')
 calculator = st.checkbox('Calculator')
 if calculator:
+    st.write('좋아요!')
+lottery = st.checkbox('Lottery')
+if lottery:
+    st.image('./images/따봉1.png')
+phone_number = st.checkbox('Phone Number')
+if phone_number:
     st.image('./images/따봉2.png')
 
 
 st.write('### :mag: :blue[기본 체험]')
 
-@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)         # 모델을 한 번만 load하기 위해서 Rerun을 안하도록 만들어줌
 def load():
     return load_model('./model.h5')
 model = load()
@@ -152,124 +152,122 @@ if canvas.image_data is not None:
 
     st.write('## :dart: 예측 결과: %d' % np.argmax(y))
 
-tab1, tab2 = st.tabs(["예쁜 사진으로 보기", "그래프로 보기"])
+st.write('### :green[예쁜 사진으로 보기]')
+[col3, col4, col5] = st.columns([2, 2, 1])
+with col3:
+    if st.button('일치'):
+        if np.argmax(y) == 0:
+            st.image('./images/zero.jpg')
+            with open("./images/zero.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="zero.jpg",
+                        mime="image/jpg"
+                    )
+        elif np.argmax(y) == 1:
+            st.image('./images/one.jpg')
+            with open("./images/one.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="one.jpg",
+                        mime="image/jpg"
+                    )
+        elif np.argmax(y) == 2:
+            st.image('./images/two.jpg')
+            with open("./images/two.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="two.jpg",
+                        mime="image/jpg"
+                    )
+        elif np.argmax(y) == 3:
+            st.image('./images/three.jpg')
+            with open("./images/three.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="three.jpg",
+                        mime="image/jpg"
+                    )
+        elif np.argmax(y) == 4:
+            st.image('./images/four.jpg')
+            with open("./images/four.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="four.jpg",
+                        mime="image/jpg"
+                    )
+        elif np.argmax(y) == 5:
+            st.image('./images/five.jpg')
+            with open("./images/five.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="five.jpg",
+                        mime="image/jpg"
+                    )
+        elif np.argmax(y) == 6:
+            st.image('./images/six.jpg')
+            with open("./images/six.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="six.jpg",
+                        mime="image/jpg"
+                    )
+        elif np.argmax(y) == 7:
+            st.image('./images/seven.jpg')
+            with open("./images/seven.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="seven.jpg",
+                        mime="image/jpg"
+                    )
+        elif np.argmax(y) == 8:
+            st.image('./images/eight.jpg')
+            with open("./images/eight.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="eight.jpg",
+                        mime="image/jpg"
+                    )
+        elif np.argmax(y) == 9:
+            st.image('./images/nine.jpg')
+            with open("./images/nine.jpg", "rb") as file:
+                btn = st.download_button(
+                        label="이미지 소장하기",
+                        data=file,
+                        file_name="nine.jpg",
+                        mime="image/jpg"
+                    )
 
-with tab1:
-    [col3, col4, col5] = st.columns([2, 2, 1]) 
-    with col3:
-        if st.button('일치'):
-            if np.argmax(y) == 0:
-                st.image('./images/zero.jpg')
-                with open("./images/zero.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="zero.jpg",
-                            mime="image/jpg"
-                        )
-            elif np.argmax(y) == 1:
-                st.image('./images/one.jpg')
-                with open("./images/one.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="one.jpg",
-                            mime="image/jpg"
-                        )
-            elif np.argmax(y) == 2:
-                st.image('./images/two.jpg')
-                with open("./images/two.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="two.jpg",
-                            mime="image/jpg"
-                        )
-            elif np.argmax(y) == 3:
-                st.image('./images/three.jpg')
-                with open("./images/three.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="three.jpg",
-                            mime="image/jpg"
-                        )
-            elif np.argmax(y) == 4:
-                st.image('./images/four.jpg')
-                with open("./images/four.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="four.jpg",
-                            mime="image/jpg"
-                        )
-            elif np.argmax(y) == 5:
-                st.image('./images/five.jpg')
-                with open("./images/five.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="five.jpg",
-                            mime="image/jpg"
-                        )
-            elif np.argmax(y) == 6:
-                st.image('./images/six.jpg')
-                with open("./images/six.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="six.jpg",
-                            mime="image/jpg"
-                        )
-            elif np.argmax(y) == 7:
-                st.image('./images/seven.jpg')
-                with open("./images/seven.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="seven.jpg",
-                            mime="image/jpg"
-                        )
-            elif np.argmax(y) == 8:
-                st.image('./images/eight.jpg')
-                with open("./images/eight.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="eight.jpg",
-                            mime="image/jpg"
-                        )
-            elif np.argmax(y) == 9:
-                st.image('./images/nine.jpg')
-                with open("./images/nine.jpg", "rb") as file:
-                    btn = st.download_button(
-                            label="이미지 소장하기",
-                            data=file,
-                            file_name="nine.jpg",
-                            mime="image/jpg"
-                        )
-
-    with col4:
-        if st.button('불일치'):
-            st.image('./images/불일치.png')
-            st.write('#### 다시 그려주세요')
+with col4:
+    if st.button('불일치'):
+        st.image('./images/불일치.png')
+        st.write('#### 다시 그려주세요')
         
-    with col5:
-        st.write("##### 내 만족도")
-        vertical_slider(
-            key="slider",
-            default_value=10,
-            step=1,
-            min_value=0,
-            max_value=100,
-            track_color="gray",
-            thumb_color="blue", 
-            slider_color="red",
-        )
+with col5:
+    st.write("##### 내 만족도")
+    vertical_slider(
+        key="slider",
+        default_value=10,
+        step=1,
+        min_value=0,
+        max_value=100,
+        track_color="gray",
+        thumb_color="blue", 
+        slider_color="red",
+    )
     
-with tab2:
-    st.write("해당 숫자일 확률을 나타냅니다.")
-    st.bar_chart(y)
+st.write("### :bluepurple[그래프로 보기]")
+st.write("해당 숫자일 확률을 나타냅니다.")
+st.bar_chart(y)
 
 st.write('### BGM :musical_score:')
 st.write('Fantasie Impromptu')
@@ -285,11 +283,7 @@ st.audio('./audios/Summer.mp3')
 ```
 ### Main Page 시연 영상
 
-![image](https://user-images.githubusercontent.com/84713532/215370501-54a7e9d9-79df-469a-9702-010191d50a3f.png)
-
-![image](https://user-images.githubusercontent.com/84713532/215370562-d098175c-221d-4336-a696-51aee7bd2ac0.png)
-
-![image](https://user-images.githubusercontent.com/84713532/215370624-2e6f459d-ff62-4bf9-8f98-f9dff2423fb9.png)
+![main_page3](https://user-images.githubusercontent.com/84713532/215399009-f8a254ab-baa0-46d8-85b0-9404db51e7f0.gif)
 
 ## Calculator
 
@@ -300,17 +294,16 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import random
-import pyautogui
 from utils import set_bg
+
+set_bg('images/mnist2.png')
 
 @st.cache(allow_output_mutation=True)
 def load():
     return load_model('./model.h5')
 model = load()
 
-
 st.image('./images/title.png')
-set_bg('images/mnist2.png')
 
 st.write('# 계산기 :computer:')
 st.write('숫자 두개를 그려주세요')
@@ -405,7 +398,7 @@ with col1 :
 
 with col2 : 
     if st.button("NO")  :
-        pyautogui.hotkey('f5') 
+        st.write('#### 새로고침을 눌러주세요.')
 ```
 
 ### Calculator 시연 영상
@@ -422,8 +415,10 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import tensorflow as ts
 import random  
-import pyautogui
 from utils import set_bg
+
+set_bg('images/mnist2.png')
+
 
 disable_btn=False
 
@@ -432,7 +427,6 @@ def load():
     return load_model('./model.h5')
 model = load()
 st.image('./images/title.png')
-set_bg('images/mnist2.png')
 
 st.title('행운의 숫자 뽑기')
 
@@ -440,9 +434,6 @@ col1, col2,col3,col4 = st.columns(4)
 CANVAS_SIZE = 192
 yes_btn=False
 no_btn=False
-
-
-
 
 with col1:
     st.write("숫자를 그려주세요")
@@ -551,12 +542,12 @@ with col4:
     with col4:
         refresh_btn=st.button("regame?")
         if refresh_btn==True:
-            pyautogui.hotkey('f5')   
+            st.write('#### 새로고침을 눌러주세요.')
 ```
 
 ### Lottery 시연 영상
 
-![image](https://user-images.githubusercontent.com/84713532/215371093-90b452f1-f738-4008-bf60-dcc1b341512c.png)
+![lottery시연영상](https://user-images.githubusercontent.com/84713532/215399066-1017bb9e-bf9f-473f-bb8d-e8b46b822d8b.gif)
 
 ## Phone Number
 
@@ -568,17 +559,16 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import pandas as pd
 from io import BytesIO
-import pyautogui
+from utils import set_bg
 
+set_bg('images/mnist2.png')
 
 @st.cache(allow_output_mutation=True)
 def load():
     return load_model('./model.h5')
 model = load()
 
-from utils import set_bg
 st.image('./images/title.png')
-set_bg('images/mnist2.png')
 
 name_input = st.text_input('이름을 입력하세요')
 
@@ -782,7 +772,7 @@ with col_1:
 
         st.button('추가 입력')
 
-        csv = df.to_csv().encode('ANSI')
+        csv = df.to_csv().encode('utf-8-sig')
         st.download_button(
             label="CSV 파일 다운로드",
             data=csv,
@@ -804,6 +794,4 @@ with col_2:
 
 ### Phone Number 시연 영상
 
-![image](https://user-images.githubusercontent.com/84713532/215371134-a2003894-9c4e-4dba-b7c6-48db5baff353.png)
-
-![image](https://user-images.githubusercontent.com/84713532/215371164-e6e361cd-f92c-4ef5-8b1a-d22f6bc8d4a8.png)
+![전화번호시연영상](https://user-images.githubusercontent.com/84713532/215399102-af328098-aaa7-48cf-b440-7fe83b9b90b9.gif)
