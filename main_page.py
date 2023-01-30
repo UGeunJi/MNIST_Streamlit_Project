@@ -11,7 +11,9 @@ st.image('./images/title.png')
 st.write('### :star: :red[특별 체험]')
 
 
-
+calculator = st.checkbox('Calculator')
+if calculator:
+    st.write('좋아요!')
 lottery = st.checkbox('Lottery')
 if lottery:
     st.image('./images/따봉1.png')
@@ -169,9 +171,7 @@ with col5:
         slider_color="red",
     )
     
-st.write("### :bluepurple[그래프로 보기]")
-st.write("해당 숫자일 확률을 나타냅니다.")
-st.bar_chart(y)
+
 
 st.write('### BGM :musical_score:')
 st.write('Fantasie Impromptu')
