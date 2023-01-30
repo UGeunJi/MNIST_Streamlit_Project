@@ -7,6 +7,11 @@ import tensorflow as ts
 import random  
 import pyautogui
 
+def get_base64(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
 def set_bg(png_file):
     bin_str = get_base64(png_file)
     page_bg_img = """

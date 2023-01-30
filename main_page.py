@@ -5,6 +5,11 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 from streamlit_vertical_slider import vertical_slider
 
+def get_base64(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
 def set_bg(png_file):
     bin_str = get_base64(png_file)
     page_bg_img = """
