@@ -215,13 +215,11 @@ with col_1:
             }
         )
         st.session_state.number = '010-'
-
         st.dataframe(df)
 
         st.button('추가 입력')
 
         csv = df.to_csv().encode('ANSI')
-
         st.download_button(
             label="CSV 파일 다운로드",
             data=csv,
@@ -230,7 +228,6 @@ with col_1:
 
         excel_data = BytesIO()  
         df.to_excel(excel_data)
-
         st.download_button(
             label="엑셀 파일 다운로드",
             data=excel_data,
