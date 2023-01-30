@@ -4,7 +4,9 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import random
+import pyautogui
 from utils import set_bg
+
 @st.cache(allow_output_mutation=True)
 def load():
     return load_model('./model.h5')
@@ -106,5 +108,5 @@ with col1 :
 
 
 with col2 : 
-    if st.button("NO")  : 
-        st.write("다시 시도해주세요..ㅠㅠ")
+    if st.button("NO")  :
+        pyautogui.hotkey('f5') 
