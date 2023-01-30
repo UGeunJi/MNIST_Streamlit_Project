@@ -6,9 +6,7 @@ import numpy as np
 import pandas as pd
 from io import BytesIO
 import pyautogui
-from utils import set_bg
 
-set_bg('images/mnist2.png')
 
 
 @st.cache(allow_output_mutation=True)

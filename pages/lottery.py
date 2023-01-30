@@ -6,9 +6,7 @@ import numpy as np
 import tensorflow as ts
 import random  
 import pyautogui
-from utils import set_bg
 
-set_bg('images/mnist2.png')
 
 
 disable_btn=False
