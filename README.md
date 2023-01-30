@@ -268,11 +268,7 @@ st.audio('./audios/Summer.mp3')
 ```
 ### Main Page 시연 영상
 
-![image](https://user-images.githubusercontent.com/84713532/215370501-54a7e9d9-79df-469a-9702-010191d50a3f.png)
 
-![image](https://user-images.githubusercontent.com/84713532/215370562-d098175c-221d-4336-a696-51aee7bd2ac0.png)
-
-![image](https://user-images.githubusercontent.com/84713532/215370624-2e6f459d-ff62-4bf9-8f98-f9dff2423fb9.png)
 
 ## Calculator
 
