@@ -1,4 +1,4 @@
-⁸# :1234: MNIST Streamlit Project :slot_machine: 
+# :1234: MNIST Streamlit Project :slot_machine: 
 
 ### [:pencil2: 프로젝트 결과 직접 체험하기]()
 
