@@ -19,7 +19,7 @@
 
 > :family: 팀명: 숫자놀이
 
-| 팀원 | 역할 |
+| 팀원 | 역할(Code Link) |
 | --- | --- |
 | [강동엽](https://github.com/kdy1493) | [Calculator](#calculator) |
 | [이상훈](https://github.com/Dawnnote) | [Phone Number](#phone-number) |
