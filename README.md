@@ -245,6 +245,13 @@ st.audio('./audios/River flows in your.mp3')
 st.write('Summer')
 st.audio('./audios/Summer.mp3')
 ```
+### 실행화면
+
+![image](https://user-images.githubusercontent.com/84713532/215370501-54a7e9d9-79df-469a-9702-010191d50a3f.png)
+
+![image](https://user-images.githubusercontent.com/84713532/215370562-d098175c-221d-4336-a696-51aee7bd2ac0.png)
+
+![image](https://user-images.githubusercontent.com/84713532/215370624-2e6f459d-ff62-4bf9-8f98-f9dff2423fb9.png)
 
 ## Calculator
 
@@ -255,15 +262,20 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import random
-
+from utils import set_bg
 @st.cache(allow_output_mutation=True)
 def load():
     return load_model('./model.h5')
 model = load()
 
-st.write('# Calculator :computer:')
-st.write('Draw Any Two Number')
-CANVAS_SIZE = 192
+
+st.image('./images/title.png')
+set_bg('images/mnist2.png')
+
+st.write('# 계산기 :computer:')
+st.write('숫자 두개를 그려주세요')
+CANVAS_SIZE = 340
+STROKE_SIZE =16 
 
 # 숫자 확인
 def model_predict(canvas1, canvas2) :
@@ -287,6 +299,7 @@ def model_predict(canvas1, canvas2) :
 def calculation() :
     operator = st.radio('operator', ["+", "-", "%", "*"]) 
 
+    st.write("## 계산 결과는...")
     if operator == "+" : 
         st.write('## %d + %d = %d' % (z1,z2,z1+z2))
 
@@ -300,12 +313,12 @@ def calculation() :
         st.write('## %d * %d = %d' % (z1,z2,z1*z2))
 
 # canvas 설정
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 
 with col1:
     canvas1 = st_canvas(
         fill_color='#000000',
-        stroke_width=20,
+        stroke_width=STROKE_SIZE,
         stroke_color='#FFFFFF',
         background_color='#000000',
         width=CANVAS_SIZE,
@@ -317,7 +330,7 @@ with col1:
 with col2:
     canvas2 = st_canvas(
         fill_color='#000000',
-        stroke_width=20,
+        stroke_width=STROKE_SIZE,
         stroke_color='#FFFFFF',
         background_color='#000000',
         width=CANVAS_SIZE,
@@ -333,101 +346,37 @@ if canvas1.image_data is not None and canvas2.image_data is not None:
 
 
 # 그린 숫자가 맞는지 확인
-st.write("## Is the Number correct? %d, %d" % (z1 ,z2) )
+st.write("## 입력하신 숫자가 맞나요?? %d, %d" % (z1 ,z2) )
 [col1, col2] =st.columns(2) 
+
+
+if 'button_clicked' not in st.session_state:
+    st.session_state.button_clicked = False
+
+def callback():
+    st.session_state.button_clicked = True
 
 # 맞을 경우  
 with col1 :
-    if st.button("Yes") : 
-        st.write("## Choose an operator")
-calculation()
+    if (st.button("Yes", on_click=callback) or st.session_state.button_clicked): 
+        st.write("## 연산자를 골라주세요!")
+        calculation()
 
 
 with col2 : 
     if st.button("NO")  : 
-        st.write("Please try again")
+        st.write("다시 시도해주세요..ㅠㅠ")
 ```
+
+### 실행결과
+
+![image](https://user-images.githubusercontent.com/84713532/215370987-f5f0b0e2-7304-4e42-b574-34795f3eaae5.png)
+
+![image](https://user-images.githubusercontent.com/84713532/215371020-690f44ad-a855-4ed4-b5b5-0178e3b709df.png)
 
 ## Lottery
 
 ```py
-# import cv2
-# from keras.models import load_model
-# import streamlit as st
-# from streamlit_drawable_canvas import st_canvas
-# import numpy as np
-#
-#
-# @st.cache(allow_output_mutation=True)
-# def load():
-#     return load_model('./model.h5')
-# model = load()
-#
-#
-#
-# st.header('행운의 숫자 뽑기')
-#
-# col1, col2,col3 = st.columns(3)
-# CANVAS_SIZE = 192
-# number_list=[]
-# yes_btn=False
-# no_btn=False
-#
-# class save_num:
-#     def __init__(self):
-#         self.numbers=[]
-#     def append_number(self,number):
-#         self.numbers.append(number)
-#
-# a1 = save_num()
-#
-#
-# with col1:
-#     st.write("숫자를 그려주세요")
-#     canvas = st_canvas(
-#         fill_color='#000000',
-#         stroke_width=20,
-#         stroke_color='#FFFFFF',
-#         background_color='#000000',
-#         width=CANVAS_SIZE,
-#         height=CANVAS_SIZE,
-#         drawing_mode='freedraw',
-#         key='canvas'
-#     )
-#
-# if canvas.image_data is not None:
-#     with col2:
-#         img = canvas.image_data.astype(np.uint8)
-#         img = cv2.resize(img, dsize=(28, 28))
-#         x = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#         x = x.reshape((-1, 28, 28, 1))
-#         y = model.predict(x).squeeze()
-#         get_number=np.argmax(y).copy()
-#         st.write('## 쓰신 숫자가: %d 맞나요?' % np.argmax(y))
-#         with st.container() :
-#             yes_btn= st.button('yes')
-#             no_btn= st.button('no')
-#
-# def add_num(num):
-#     number_list.append(num)
-#     return number_list
-# if yes_btn:
-#     f=open('lottery.txt','a+')
-#     f.write(str(get_number.item()))
-#     f.close()
-#
-#
-# if no_btn:
-#     with col2:
-#         st.write("숫자를 다시 입력해주세요")
-# with col3:
-#     f=open('lottery.txt','r')
-#     st.write(f.readline())
-#     f.close()
-#
-
-
-
 import cv2
 from keras.models import load_model
 import streamlit as st
@@ -436,6 +385,7 @@ import numpy as np
 import tensorflow as ts
 import random  
 import pyautogui
+from utils import set_bg
 
 disable_btn=False
 
@@ -443,6 +393,8 @@ disable_btn=False
 def load():
     return load_model('./model.h5')
 model = load()
+st.image('./images/title.png')
+set_bg('images/mnist2.png')
 
 st.title('행운의 숫자 뽑기')
 
@@ -561,8 +513,12 @@ with col4:
     with col4:
         refresh_btn=st.button("regame?")
         if refresh_btn==True:
-            pyautogui.hotkey('f5')
+            pyautogui.hotkey('f5')   
 ```
+
+### 실행 결과
+
+![image](https://user-images.githubusercontent.com/84713532/215371093-90b452f1-f738-4008-bf60-dcc1b341512c.png)
 
 ## Phone Number
 
@@ -574,12 +530,17 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import pandas as pd
 from io import BytesIO
+import pyautogui
 
 
 @st.cache(allow_output_mutation=True)
 def load():
     return load_model('./model.h5')
 model = load()
+
+from utils import set_bg
+st.image('./images/title.png')
+set_bg('images/mnist2.png')
 
 name_input = st.text_input('이름을 입력하세요')
 
@@ -638,6 +599,7 @@ with col4:
         drawing_mode='freedraw',
         key='canvas4'
     )
+
 st.text('마지막 번호 4자리')
 col5, col6, col7, col8 = st.columns(4)
 with col5:
@@ -760,10 +722,7 @@ if 'Name' not in st.session_state:
 
 def phone_number_covert():
     num = str(np.argmax(y1))+str(np.argmax(y2))+str(np.argmax(y3))+str(np.argmax(y4))+'-'+str(np.argmax(y5))+str(np.argmax(y6))+str(np.argmax(y7))+str(np.argmax(y8))
-    if len(st.session_state.number) == 13:
-        pass
-    else:
-        st.session_state.number += num
+    st.session_state.number += num
     return st.session_state.number
     
 col_1, col_2 = st.columns(2)
@@ -781,13 +740,11 @@ with col_1:
             }
         )
         st.session_state.number = '010-'
-
         st.dataframe(df)
 
         st.button('추가 입력')
 
         csv = df.to_csv().encode('ANSI')
-
         st.download_button(
             label="CSV 파일 다운로드",
             data=csv,
@@ -795,9 +752,7 @@ with col_1:
         )
 
         excel_data = BytesIO()  
-        # 하나는 df2를 xlsx
         df.to_excel(excel_data)
-
         st.download_button(
             label="엑셀 파일 다운로드",
             data=excel_data,
@@ -806,5 +761,11 @@ with col_1:
 
 with col_2:
     if st.button('No'):
-        st.button('Reset')
+        st.error('번호를 다시 입력하세요', icon="🚨")
 ````
+
+### 실행 결과
+
+![image](https://user-images.githubusercontent.com/84713532/215371134-a2003894-9c4e-4dba-b7c6-48db5baff353.png)
+
+![image](https://user-images.githubusercontent.com/84713532/215371164-e6e361cd-f92c-4ef5-8b1a-d22f6bc8d4a8.png)
