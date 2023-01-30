@@ -5,6 +5,7 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 from streamlit_vertical_slider import vertical_slider
 
+st.sidebar.image('./images/sidebar_main.jpg')
 
 st.image('./images/title.png')
 
@@ -171,7 +172,9 @@ with col5:
         slider_color="red",
     )
     
-
+st.write("### :bluepurple[그래프로 보기]")
+st.write("해당 숫자일 확률을 나타냅니다.")
+st.bar_chart(y)
 
 st.write('### BGM :musical_score:')
 st.write('Fantasie Impromptu')
