@@ -43,7 +43,7 @@ def set_bg(png_file):
         </style>
     """ % (bin_str, bin_str)
     st.markdown(page_bg_img, unsafe_allow_html=True)
-set_bg('mnist2.png')
+set_bg('./images/mnist2.png')
 
 @st.cache(allow_output_mutation=True)
 def load():
