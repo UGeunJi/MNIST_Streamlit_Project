@@ -28,7 +28,7 @@ if phone_number:
 
 st.write('### :mag: :blue[기본 체험]')
 
-@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)         # 모델을 한 번만 load하기 위해서 Rerun을 안하도록 만들어줌
 def load():
     return load_model('./model.h5')
 model = load()
