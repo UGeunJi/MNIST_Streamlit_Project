@@ -5,7 +5,6 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 from streamlit_vertical_slider import vertical_slider
 
-st.sidebar.image('./images/sidebar_main.jpg')
 
 st.image('./images/title.png')
 
