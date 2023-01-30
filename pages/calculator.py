@@ -14,9 +14,10 @@ model = load()
 st.image('./images/title.png')
 set_bg('images/mnist2.png')
 
-st.write('# Calculator :computer:')
-st.write('Draw Any Two Number')
-CANVAS_SIZE = 192
+st.write('# 계산기 :computer:')
+st.write('숫자 두개를 그려주세요')
+CANVAS_SIZE = 340
+STROKE_SIZE =16 
 
 # 숫자 확인
 def model_predict(canvas1, canvas2) :
@@ -40,6 +41,7 @@ def model_predict(canvas1, canvas2) :
 def calculation() :
     operator = st.radio('operator', ["+", "-", "%", "*"]) 
 
+    st.write("## 계산 결과는...")
     if operator == "+" : 
         st.write('## %d + %d = %d' % (z1,z2,z1+z2))
 
@@ -58,7 +60,7 @@ col1, col2 = st.columns(2)
 with col1:
     canvas1 = st_canvas(
         fill_color='#000000',
-        stroke_width=20,
+        stroke_width=STROKE_SIZE,
         stroke_color='#FFFFFF',
         background_color='#000000',
         width=CANVAS_SIZE,
@@ -70,7 +72,7 @@ with col1:
 with col2:
     canvas2 = st_canvas(
         fill_color='#000000',
-        stroke_width=20,
+        stroke_width=STROKE_SIZE,
         stroke_color='#FFFFFF',
         background_color='#000000',
         width=CANVAS_SIZE,
@@ -86,7 +88,7 @@ if canvas1.image_data is not None and canvas2.image_data is not None:
 
 
 # 그린 숫자가 맞는지 확인
-st.write("## Is the Number correct? %d, %d" % (z1 ,z2) )
+st.write("## 입력하신 숫자가 맞나요?? %d, %d" % (z1 ,z2) )
 [col1, col2] =st.columns(2) 
 
 
@@ -99,10 +101,10 @@ def callback():
 # 맞을 경우  
 with col1 :
     if (st.button("Yes", on_click=callback) or st.session_state.button_clicked): 
-        st.write("## Choose an operator")
+        st.write("## 연산자를 골라주세요!")
         calculation()
 
 
 with col2 : 
     if st.button("NO")  : 
-        st.write("Please try again")
+        st.write("다시 시도해주세요..ㅠㅠ")
