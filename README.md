@@ -13,13 +13,14 @@
 ![image](https://user-images.githubusercontent.com/84713532/215372385-261d2291-e3ef-46c5-bb54-fc5d4996763e.png)
 
 
+
 ### [:pencil2: 프로젝트 결과 직접 체험하기]()
 
 ## :floppy_disk: Mini Project (2023/01/27 ~ 2023/01/30) :date:
 
 > :family: 팀명: 숫자놀이
 
-| 팀원 | 역할 |
+| 팀원 | 역할(Code Link) |
 | --- | --- |
 | [강동엽](https://github.com/kdy1493) | [Calculator](#calculator) |
 | [이상훈](https://github.com/Dawnnote) | [Phone Number](#phone-number) |
@@ -392,9 +393,7 @@ with col2 :
 
 ### Calculator 시연 영상
 
-![image](https://user-images.githubusercontent.com/84713532/215370987-f5f0b0e2-7304-4e42-b574-34795f3eaae5.png)
-
-![image](https://user-images.githubusercontent.com/84713532/215371020-690f44ad-a855-4ed4-b5b5-0178e3b709df.png)
+![calculator시연영상](https://user-images.githubusercontent.com/84713532/215376907-e0b078e2-e90a-4f20-b4c3-baf428ef9d39.gif)
 
 ## Lottery
 
