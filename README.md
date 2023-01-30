@@ -46,8 +46,6 @@
 3. 코딩하면서의 시행착오
   - columns 안에 columns 코딩 불가능!
   - 버튼을 누를 때마다 계속 페이지가 초기화됨 :cry: (session.state로 해결)
-  
-4. 최종 streamlit 배포에서 page가 뜨지 
 
 ---
 
@@ -69,11 +67,6 @@
 ---
 
 # Code
-
-[Main Page](#main-page)<br>
-[Calculator](#calculator)<br>
-[Lottery](#lottery)<br>
-[Phone Number](#phone-number)
 
 ## Main Page 
 
@@ -275,7 +268,11 @@ st.audio('./audios/Summer.mp3')
 ```
 ### Main Page 시연 영상
 
-![main_page3](https://user-images.githubusercontent.com/84713532/215384502-0b06c65d-ea9d-4b0b-a9f8-abd161f0db30.gif)
+![image](https://user-images.githubusercontent.com/84713532/215370501-54a7e9d9-79df-469a-9702-010191d50a3f.png)
+
+![image](https://user-images.githubusercontent.com/84713532/215370562-d098175c-221d-4336-a696-51aee7bd2ac0.png)
+
+![image](https://user-images.githubusercontent.com/84713532/215370624-2e6f459d-ff62-4bf9-8f98-f9dff2423fb9.png)
 
 ## Calculator
 
@@ -542,7 +539,7 @@ with col4:
 
 ### Lottery 시연 영상
 
-![lottery시연영상](https://user-images.githubusercontent.com/84713532/215383799-d82bc36c-019e-49a6-ac69-5508504cc870.gif)
+![image](https://user-images.githubusercontent.com/84713532/215371093-90b452f1-f738-4008-bf60-dcc1b341512c.png)
 
 ## Phone Number
 
@@ -790,4 +787,6 @@ with col_2:
 
 ### Phone Number 시연 영상
 
-![전화번호시연영상](https://user-images.githubusercontent.com/84713532/215383744-f6379102-609e-49c5-889e-d07e6a510174.gif)
+![image](https://user-images.githubusercontent.com/84713532/215371134-a2003894-9c4e-4dba-b7c6-48db5baff353.png)
+
+![image](https://user-images.githubusercontent.com/84713532/215371164-e6e361cd-f92c-4ef5-8b1a-d22f6bc8d4a8.png)
