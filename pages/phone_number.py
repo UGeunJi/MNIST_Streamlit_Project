@@ -5,6 +5,7 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import pandas as pd
 from io import BytesIO
+import pyautogui
 
 
 @st.cache(allow_output_mutation=True)
@@ -73,6 +74,7 @@ with col4:
         drawing_mode='freedraw',
         key='canvas4'
     )
+
 st.text('마지막 번호 4자리')
 col5, col6, col7, col8 = st.columns(4)
 with col5:
@@ -195,10 +197,7 @@ if 'Name' not in st.session_state:
 
 def phone_number_covert():
     num = str(np.argmax(y1))+str(np.argmax(y2))+str(np.argmax(y3))+str(np.argmax(y4))+'-'+str(np.argmax(y5))+str(np.argmax(y6))+str(np.argmax(y7))+str(np.argmax(y8))
-    if len(st.session_state.number) == 13:
-        pass
-    else:
-        st.session_state.number += num
+    st.session_state.number += num
     return st.session_state.number
     
 col_1, col_2 = st.columns(2)
@@ -230,7 +229,6 @@ with col_1:
         )
 
         excel_data = BytesIO()  
-        # 하나는 df2를 xlsx
         df.to_excel(excel_data)
 
         st.download_button(
@@ -241,4 +239,4 @@ with col_1:
 
 with col_2:
     if st.button('No'):
-        st.button('Reset')
+        st.error('번호를 다시 입력하세요', icon="🚨")
