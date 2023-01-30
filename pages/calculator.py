@@ -89,11 +89,18 @@ if canvas1.image_data is not None and canvas2.image_data is not None:
 st.write("## Is the Number correct? %d, %d" % (z1 ,z2) )
 [col1, col2] =st.columns(2) 
 
+
+if 'button_clicked' not in st.session_state:
+    st.session_state.button_clicked = False
+
+def callback():
+    st.session_state.button_clicked = True
+
 # 맞을 경우  
 with col1 :
-    if st.button("Yes") : 
+    if (st.button("Yes", on_click=callback) or st.session_state.button_clicked): 
         st.write("## Choose an operator")
-calculation()
+        calculation()
 
 
 with col2 : 
