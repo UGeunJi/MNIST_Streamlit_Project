@@ -5,16 +5,13 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import random
 import pyautogui
-from utils import set_bg
 
 @st.cache(allow_output_mutation=True)
 def load():
     return load_model('./model.h5')
 model = load()
 
-
 st.image('./images/title.png')
-set_bg('images/mnist2.png')
 
 st.write('# 계산기 :computer:')
 st.write('숫자 두개를 그려주세요')

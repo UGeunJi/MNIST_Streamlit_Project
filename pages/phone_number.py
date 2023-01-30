@@ -13,9 +13,7 @@ def load():
     return load_model('./model.h5')
 model = load()
 
-from utils import set_bg
 st.image('./images/title.png')
-set_bg('images/mnist2.png')
 
 name_input = st.text_input('이름을 입력하세요')
 

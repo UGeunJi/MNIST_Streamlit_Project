@@ -6,7 +6,7 @@ import numpy as np
 import tensorflow as ts
 import random  
 import pyautogui
-from utils import set_bg
+
 
 disable_btn=False
 
@@ -15,7 +15,6 @@ def load():
     return load_model('./model.h5')
 model = load()
 st.image('./images/title.png')
-set_bg('images/mnist2.png')
 
 st.title('행운의 숫자 뽑기')
 
