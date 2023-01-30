@@ -12,9 +12,7 @@
 
 ![image](https://user-images.githubusercontent.com/84713532/215372385-261d2291-e3ef-46c5-bb54-fc5d4996763e.png)
 
-
-
-### [:pencil2: 프로젝트 결과 직접 체험하기]()
+### [:pencil2: 프로젝트 결과 직접 체험하기](https://ugeunji-mnist-streamlit-project-main-page-o6n0ou.streamlit.app/)
 
 ## :floppy_disk: Mini Project (2023/01/27 ~ 2023/01/30) :date:
 
@@ -42,10 +40,24 @@
 ## Trouble Shooting
 
 1. [Teachable Machine Link](https://teachablemachine.withgoogle.com/train) - 마스크, 로고, 가위바위보를 실험해 봤지만 정확도가 높지 않아서 기각
-2. MNIST-Canvas 버전 문제(Terminal Settings로 해결), 배포 문제(packages.txt file로 해결)
+2. MNIST-Canvas 버전 문제 (Terminal Settings로 해결), 배포 문제 (packages.txt file로 해결)
 3. 코딩하면서의 시행착오
   - columns 안에 columns 코딩 불가능!
   - 버튼을 누를 때마다 계속 페이지가 초기화됨 :cry: (session.state로 해결)
+4. 배포한 사이트에서 사이드바에 다른 페이지가 표시되지 않음 (streamlit을 최신버전으로, photobuf의 버전을 그에 맞게 바꿔서 해결)
+5. Keyerror DISPLAY (pyautogui 모듈을 없애줌으로써 해결)
+6. encode('ANSI') (('utf-8-sig')로 바꿔줌으로써 해결)
+
+---
+
+## 더 구현하고 싶은 기능 
+
+- emoji rain
+- stoggle
+- 효과음
+- linebar
+- Mention
+- streamlit.extras 모듈에서 실행되지 않았던 기능들
 
 ---
 
@@ -67,6 +79,11 @@
 ---
 
 # Code
+
+[Main Page](#main-page) <br>
+[Calculator](#calculator) <br>
+[Lottery](#lottery) <br>
+[Phone Number](#phone-number)
 
 ## Main Page 
 
