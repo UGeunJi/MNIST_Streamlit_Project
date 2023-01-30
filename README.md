@@ -1,4 +1,8 @@
-# :1234: MNIST Streamlit Project :slot_machine: 
+# :1234: MNIST Streamlit Project :slot_machine:
+
+- Deep Learning
+- Streamlit
+- Canvas
 
 ### [:pencil2: 프로젝트 결과 직접 체험하기]()
 
@@ -6,7 +10,7 @@
 
 ## :floppy_disk: Mini Project (2023/01/27 ~ 2023/01/30) :date:
 
-> :family: 팀명: ???
+> :family: 팀명: 숫자놀이
 - [강동엽](https://github.com/kdy1493)
 - [이상훈](https://github.com/Dawnnote)
 - [지우근](https://github.com/UGeunJi)
