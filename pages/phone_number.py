@@ -5,8 +5,9 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import pandas as pd
 from io import BytesIO
-import pyautogui
+from utils import set_bg
 
+set_bg('images/mnist2.png')
 
 @st.cache(allow_output_mutation=True)
 def load():

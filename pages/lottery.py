@@ -5,7 +5,9 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import tensorflow as ts
 import random  
-import pyautogui
+from utils import set_bg
+
+set_bg('images/mnist2.png')
 
 
 disable_btn=False
@@ -22,9 +24,6 @@ col1, col2,col3,col4 = st.columns(4)
 CANVAS_SIZE = 192
 yes_btn=False
 no_btn=False
-
-
-
 
 with col1:
     st.write("숫자를 그려주세요")
@@ -133,6 +132,6 @@ with col4:
     with col4:
         refresh_btn=st.button("regame?")
         if refresh_btn==True:
-            pyautogui.hotkey('f5')        
+            st.write('#### 새로고침을 눌러주세요.')
         
         

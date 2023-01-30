@@ -4,7 +4,9 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import random
-import pyautogui
+from utils import set_bg
+
+set_bg('images/mnist2.png')
 
 @st.cache(allow_output_mutation=True)
 def load():
@@ -106,4 +108,4 @@ with col1 :
 
 with col2 : 
     if st.button("NO")  :
-        pyautogui.hotkey('f5') 
+        st.write('#### 새로고침을 눌러주세요.')
