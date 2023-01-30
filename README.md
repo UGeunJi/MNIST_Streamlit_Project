@@ -1,20 +1,50 @@
 # :1234: MNIST Streamlit Project :slot_machine:
 
+![image](https://user-images.githubusercontent.com/84713532/215334194-70184c50-0a5a-436d-ad15-7010453b9ef3.png)
+
+## 개요
+
 - Deep Learning
 - Streamlit
 - Canvas
 
-### [:pencil2: 프로젝트 결과 직접 체험하기]()
+#### MNIST 데이터를 가지고 모델에 학습시켜 예측하는 결과를 가지고 하는 숫자놀이 페이지 만들기
 
-![image](https://user-images.githubusercontent.com/84713532/215334194-70184c50-0a5a-436d-ad15-7010453b9ef3.png)
+![image](https://user-images.githubusercontent.com/84713532/215372385-261d2291-e3ef-46c5-bb54-fc5d4996763e.png)
+
+
+### [:pencil2: 프로젝트 결과 직접 체험하기]()
 
 ## :floppy_disk: Mini Project (2023/01/27 ~ 2023/01/30) :date:
 
 > :family: 팀명: 숫자놀이
-- [강동엽](https://github.com/kdy1493)
-- [이상훈](https://github.com/Dawnnote)
-- [지우근](https://github.com/UGeunJi)
-- [최세현](https://github.com/kdy1493)
+
+| 팀원 | 역할 |
+| --- | --- |
+| [강동엽](https://github.com/kdy1493) | [Calculator](#calculator) |
+| [이상훈](https://github.com/Dawnnote) | [Phone Number](#phone-number) |
+| [지우근](https://github.com/UGeunJi) | [Main Page](#main-page)|
+| [최세현](https://github.com/kdy1493) | [Lottery](#lottery) |
+
+### 시연 영상
+
+[Main Page 영상](#main-page-시연-영상)
+
+[Calculator 영상](calculator-시연-영상)
+
+[Lottery 영상](#lottery-시연-영상)
+
+[Phone Number 영상](#phone-number-시연-영상)
+
+---
+
+## Trouble Shooting
+
+1. [Teachable Machine Link](https://teachablemachine.withgoogle.com/train) - 마스크, 로고, 가위바위보를 실험해 봤지만 정확도가 높지 않아서 기각
+2. MNIST-Canvas 버전 문제(Terminal Settings로 해결), 배포 문제(packages.txt file로 해결)
+3. 코딩하면서의 시행착오
+  - columns 안에 columns 코딩 불가능!
+  - 버튼을 누를 때마다 계속 페이지가 초기화됨 :cry: (session.state로 해결)
 
 ---
 
@@ -35,17 +65,7 @@
 
 ---
 
-## Code
-
-[Main Page](#main-page)
-
-[Calculator](#calculator)
-
-[Lottery](#lottery)
-
-[Phone Number](#phone-number)
-
----
+# Code
 
 ## Main Page 
 
@@ -245,7 +265,7 @@ st.audio('./audios/River flows in your.mp3')
 st.write('Summer')
 st.audio('./audios/Summer.mp3')
 ```
-### 실행화면
+### Main Page 시연 영상
 
 ![image](https://user-images.githubusercontent.com/84713532/215370501-54a7e9d9-79df-469a-9702-010191d50a3f.png)
 
@@ -368,7 +388,7 @@ with col2 :
         st.write("다시 시도해주세요..ㅠㅠ")
 ```
 
-### 실행결과
+### Calculator 시연 영상
 
 ![image](https://user-images.githubusercontent.com/84713532/215370987-f5f0b0e2-7304-4e42-b574-34795f3eaae5.png)
 
@@ -516,7 +536,7 @@ with col4:
             pyautogui.hotkey('f5')   
 ```
 
-### 실행 결과
+### Lottery 시연 영상
 
 ![image](https://user-images.githubusercontent.com/84713532/215371093-90b452f1-f738-4008-bf60-dcc1b341512c.png)
 
@@ -764,7 +784,7 @@ with col_2:
         st.error('번호를 다시 입력하세요', icon="🚨")
 ````
 
-### 실행 결과
+### Phone Number 시연 영상
 
 ![image](https://user-images.githubusercontent.com/84713532/215371134-a2003894-9c4e-4dba-b7c6-48db5baff353.png)
 
